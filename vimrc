@@ -3,12 +3,14 @@ set encoding=utf-8
 " Leader
 let mapleader = " "
 
+set hidden        " Manage multiple buffers effectively: the current buffer can be "sent" to the background without writing to disk
 set backspace=2   " Backspace deletes like most programs in insert mode
 set nobackup
 set nowritebackup
 set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
 set history=50
 set ruler         " show the cursor position all the time
+set cursorline    " highlighting the cursorlino
 set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
@@ -193,3 +195,6 @@ let g:ale_fixers = {
 " Set this variable to 1 to fix files when you save them.
 let g:ale_fix_on_save = 1
 colorscheme monokai
+
+" ignore node_modules
+:set wildignore+=**/node_modules/**
