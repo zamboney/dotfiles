@@ -6,6 +6,7 @@ let mapleader = " "
 set hidden        " Manage multiple buffers effectively: the current buffer can be "sent" to the background without writing to disk
 set backspace=2   " Backspace deletes like most programs in insert mode
 set nobackup
+set nocompatible  " Use Vim settings, rather then Vi settings. It’s important to have this on the top of your file, as it influences other options.
 set nowritebackup
 set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
 set history=50
@@ -17,6 +18,15 @@ set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
 set modelines=0   " Disable modelines as a security precaution
 set nomodeline
+set autoread      " Automatically re-read files if unmodified inside Vim
+set noerrorbells  " Disable beep on errors.
+set visualbell    " Flash the screen instead of beeping on errors.
+set incsearch     " Find the next match as we type the search.
+set hlsearch      " Highlight searches by default.
+set ignorecase    " Ignore case when searching . . .
+set smartcase     " . . . unless you type a capital.
+set scrolloff=3 " The number of screen lines to keep above and below the cursor.
+set sidescrolloff=5 " The number of screen columns to keep to the left and right of the cursor.
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -198,3 +208,7 @@ colorscheme monokai
 
 " ignore node_modules
 :set wildignore+=**/node_modules/**
+let g:netrw_browse_split = 4
+let g:netrw_winsize = 20
+" https://stackoverflow.com/a/57202529
+set clipboard+=unnamed
