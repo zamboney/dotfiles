@@ -212,3 +212,4 @@ let g:netrw_browse_split = 4
 let g:netrw_winsize = 20
 " https://stackoverflow.com/a/57202529
 set clipboard+=unnamed
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'javascript']
