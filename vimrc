@@ -371,3 +371,6 @@ function! CleanNoNameEmptyBuffers()
 endfunction
 
 nnoremap <silent> ,c :call CleanNoNameEmptyBuffers()<CR>
+
+" brew install ripgrep
+set grepprg="rg --smart-case --vimgrep"
