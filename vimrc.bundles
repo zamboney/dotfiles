@@ -51,6 +51,7 @@ Plug 'cakebaker/scss-syntax.vim'
 Plug 'preservim/nerdtree'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'leafgarland/typescript-vim'
 
 " Plug 'plasticboy/vim-markdown'
 if g:has_async
