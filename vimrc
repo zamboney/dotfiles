@@ -101,7 +101,7 @@ set nojoinspaces
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
   " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
+  set grepprg=ag\ --vimgrep
 
   " Use ag in fzf for listing files. Lightning fast and respects .gitignore
   let $FZF_DEFAULT_COMMAND = 'ag --literal --files-with-matches --nocolor --hidden -g ""'
@@ -371,6 +371,3 @@ function! CleanNoNameEmptyBuffers()
 endfunction
 
 nnoremap <silent> ,c :call CleanNoNameEmptyBuffers()<CR>
-
-" brew install ripgrep
-set grepprg="rg --smart-case --vimgrep"
