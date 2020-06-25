@@ -107,13 +107,11 @@ if executable('ag')
   let $FZF_DEFAULT_COMMAND = 'ag --literal --files-with-matches --nocolor --hidden -g ""'
 
   if !exists(":Ag")
-    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
     nnoremap \ :Ag<SPACE>
   endif
 endif
 
 " Make it obvious where 80 characters is
-set textwidth=80
 set colorcolumn=+1
 
 " Numbers
@@ -138,21 +136,56 @@ inoremap <S-Tab> <C-n>
 " Switch between the last two files
 nnoremap <Leader><Leader> <C-^>
 
-" Get off my lawn
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
+" Remove newbie crutches in Command Mode
+cnoremap <Down> <Nop>
+cnoremap <Left> <Nop>
+cnoremap <Right> <Nop>
+cnoremap <Up> <Nop>
 
-" vim-test mappings
-nnoremap <silent> <Leader>t :TestFile<CR>
-nnoremap <silent> <Leader>s :TestNearest<CR>
-nnoremap <silent> <Leader>l :TestLast<CR>
-nnoremap <silent> <Leader>a :TestSuite<CR>
-nnoremap <silent> <Leader>gt :TestVisit<CR>
+" Remove newbie crutches in Insert Mode
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+inoremap <Up> <Nop>
 
-" Run commands that require an interactive shell
-nnoremap <Leader>r :RunInInteractiveShell<Space>
+" Remove newbie crutches in Normal Mode
+nnoremap <Down> <Nop>
+nnoremap <Left> <Nop>
+nnoremap <Right> <Nop>
+nnoremap <Up> <Nop>
+
+" Remove newbie crutches in Visual Mode
+vnoremap <Down> <Nop>
+vnoremap <Left> <Nop>
+vnoremap <Right> <Nop>
+vnoremap <Up> <Nop>
+
+" command shortcut
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+cnoremap <c-k> <Up>
+cnoremap <C-j> <Down>
+cnoremap <C-h> <Left>
+cnoremap <C-l> <Right>
+cnoremap <C-b> <S-Left>
+cnoremap <C-w> <S-Right>
+
+" insert shortcut
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
+inoremap <c-k> <Up>
+inoremap <C-j> <Down>
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+inoremap <C-H> <Left>
+inoremap <C-J> <Down>
+inoremap <C-K> <Up>
+inoremap <C-L> <Right>
+inoremap <C-b> <S-Left>
+inoremap <C-w> <S-Right>
+
+let g:AutoPairsMapCh = 0
+let g:AutoPairsMapBS = 0
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
@@ -199,12 +232,18 @@ let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
 let g:ale_linters = {'vue': ['eslint', 'vls']}
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['eslint'],
+\   'javascript': ['eslint','prettier'],
 \   'vue': ['eslint'],
 \ }
 " Set this variable to 1 to fix files when you save them.
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
+" https://github.com/dense-analysis/ale/issues/1176#issuecomment-348149374
+let g:ale_cache_executable_check_failures = 1
 colorscheme monokai
+
+" https://github.com/neoclide/coc.nvim/issues/1827
+" slow Coc intellisense
+let g:airline#extensions#hunks#enabled = 0
 
 " ignore node_modules
 :set wildignore+=**/node_modules/**
@@ -213,7 +252,7 @@ let g:netrw_winsize = 20
 " https://stackoverflow.com/a/57202529
 set clipboard+=unnamed
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'javascript']
-nnoremap <C-b> :NERDTreeToggle<CR>
+nnoremap <C-b> :Buffers<CR>
 " TextEdit might fail if hidden is not set.
 set hidden
 
@@ -347,7 +386,7 @@ nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document.
 nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
 " Search workspace symbols.
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent> <space>sy  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
 nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
@@ -356,7 +395,10 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " open the current markdown in reveal js
-nnoremap <Leader>r :terminal npx reveal-md % --theme solarized --separator \"\^\\n\\n\\n\" --vertical-separator \"\^\\n\\n\"<CR>
+nnoremap <Leader>r :terminal npx reveal-md % --css style.css --theme solarized --separator \"\^\\n\\n\\n\" --vertical-separator \"\^\\n\\n\"<CR>
+
+" open the current markdown in reveal js
+nnoremap <Leader>rp :terminal npx reveal-md % --css style.css --theme solarized --separator \"\^\\n\\n\\n\" --vertical-separator \"\^\\n\\n\" --print %:r.pdf --print-size 1024x768<CR>
 
 let NERDTreeShowHidden=1
 
@@ -371,3 +413,78 @@ function! CleanNoNameEmptyBuffers()
 endfunction
 
 nnoremap <silent> ,c :call CleanNoNameEmptyBuffers()<CR>
+
+au BufNewFile,BufRead Jenkinsfile setf groovy
+
+
+" https://github.com/skanehira/preview-markdown.vim#options
+let g:preview_markdown_vertical = 1
+let g:preview_markdown_parser = 'mdv'
+let g:preview_markdown_auto_update = 1
+
+" Use <C-l> for trigger snippet expand.
+" imap <C-l> <Plug>(coc-snippets-expand)
+
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+
+" Use <C-j> for both expand and jump (make expand higher priority.)
+" imap <C-j> <Plug>(coc-snippets-expand-jump):
+
+" https://github.com/neoclide/coc-yank
+nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
+
+" https://vim.fandom.com/wiki/Set_working_directory_to_the_current_file
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
+
+
+set wildmenu
+let g:sessions_dir = '~/vim-sessions'
+exec 'nnoremap <Leader>ss :mksession! ' . g:sessions_dir . '/*.vim<C-D><BS><BS><BS><BS><BS>'
+exec 'nnoremap <Leader>sr :so ' . g:sessions_dir. '/*.vim<C-D><BS><BS><BS><BS><BS>'
+
+let g:yankring_replace_n_pkey = '<C-Y>'
+
+"-- FOLDING --
+set foldmethod=syntax "syntax highlighting items specify folds
+set foldcolumn=1 "defines 1 col at window left, to indicate folding
+let javaScript_fold=1 "activate folding by JS syntax
+set foldlevelstart=99 "start file with all folds opened
+
+
+" Markdown
+" https://github.com/JamshedVesuna/vim-markdown-preview
+let vim_markdown_preview_hotkey='<C-m>'
+let vim_markdown_preview_temp_file=1
+let vim_markdown_preview_github=1
+let vim_markdown_preview_browser='Google Chrome'
+
+nmap ,cs :let @*=expand("%")<CR>
+nmap ,cl :let @*=expand("%:p")<CR>
+
+
+function! PrintGivenRange() range
+    echo "firstline ".a:firstline." lastline ".a:lastline
+    " Do some more things
+endfunction
+
+nnoremap <buffer> <Leader>tr :TableModeRealign<cr>
+
+" vim wiki
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+
+
+au BufNewFile,BufRead *.groovy  setf groovy
+au BufNewFile,BufRead Jenkinsfile setf groovy
+if did_filetype()
+  finish
+endif
+if getline(1) =~ '^#!.*[/\\]groovy\>'
+  setf groovy
+endif
