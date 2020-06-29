@@ -488,3 +488,9 @@ endif
 if getline(1) =~ '^#!.*[/\\]groovy\>'
   setf groovy
 endif
+
+" JIRA
+let g:jiraVimDomainName = "naturalintelligence"
+let g:jiraVimEmail = "ran.itzhaki@naturalint.com"
+let g:jiraVimToken = "6u3Cc2qA5oagvhbdxs1FC7C8"
+
