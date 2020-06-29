@@ -494,3 +494,18 @@ let g:jiraVimDomainName = "naturalintelligence"
 let g:jiraVimEmail = "ran.itzhaki@naturalint.com"
 let g:jiraVimToken = "6u3Cc2qA5oagvhbdxs1FC7C8"
 
+""""" enable 24bit true color
+
+" If you have vim >=8.0 or Neovim >= 0.1.5
+if (has("termguicolors"))
+ set termguicolors
+endif
+
+" For Neovim 0.1.3 and 0.1.4
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+""""" enable the theme
+
+syntax enable
+colorscheme night-owl
+

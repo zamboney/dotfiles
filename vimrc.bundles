@@ -66,6 +66,7 @@ Plug 'google/vim-maktaba'
 Plug 'google/vim-codereview'
 Plug 'AGhost-7/critiq.vim'
 Plug 'paulkass/jira-vim'
+Plug 'haishanh/night-owl.vim'
 
 if g:has_async
   Plug 'dense-analysis/ale'
