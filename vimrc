@@ -392,7 +392,7 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
-nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+" nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " open the current markdown in reveal js
 nnoremap <Leader>r :terminal npx reveal-md % --css style.css --theme solarized --separator \"\^\\n\\n\\n\" --vertical-separator \"\^\\n\\n\"<CR>
@@ -494,18 +494,10 @@ let g:jiraVimDomainName = "naturalintelligence"
 let g:jiraVimEmail = "ran.itzhaki@naturalint.com"
 let g:jiraVimToken = "6u3Cc2qA5oagvhbdxs1FC7C8"
 
-""""" enable 24bit true color
-
-" If you have vim >=8.0 or Neovim >= 0.1.5
-if (has("termguicolors"))
- set termguicolors
-endif
-
-" For Neovim 0.1.3 and 0.1.4
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-
-""""" enable the theme
-
-syntax enable
 colorscheme night-owl
 
+" YankRing
+let g:yankring_replace_n_pkey = '<Leader>p'
+
+" Hightlight intelisnce
+highlight Pmenu ctermbg=gray guibg=gray
