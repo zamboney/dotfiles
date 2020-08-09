@@ -501,3 +501,29 @@ let g:yankring_replace_n_pkey = '<Leader>p'
 
 " Hightlight intelisnce
 highlight Pmenu ctermbg=gray guibg=gray
+
+" set the path of coc to node12
+let g:coc_node_path = '~/.nvm/versions/node/v12.14.1/bin/node'
+
+" disable syntax for large files
+autocmd BufWinEnter * if line2byte(line("$") + 1) > 1000000 | syntax clear | endif
+
+" Goyo
+let g:goyo_width = '85%'
+
+function! s:goyo_enter()
+  GitGutterEnable
+  Limelight
+  " ...
+endfunction
+
+function! s:goyo_leave()
+  Limelight!
+  " ...
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+" Limelight
+nmap <Leader>l <Plug>(Limelight)
+xmap <Leader>l <Plug>(Limelight)

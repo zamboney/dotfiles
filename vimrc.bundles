@@ -67,6 +67,13 @@ Plug 'google/vim-codereview'
 Plug 'AGhost-7/critiq.vim'
 Plug 'paulkass/jira-vim'
 Plug 'haishanh/night-owl.vim'
+Plug 'heavenshell/vim-jsdoc'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'justinmk/vim-sneak'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'tpope/vim-dadbod'
+Plug 'tpope/vim-dispatch'
 
 if g:has_async
   Plug 'dense-analysis/ale'

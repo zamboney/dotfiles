@@ -14,7 +14,8 @@
   st = status
 [core]
   excludesfile = ~/.gitignore
-  autocrlf = input
+  editor = 'nvim'
+	autocrlf = input
 [merge]
   ff = only
 [commit]
