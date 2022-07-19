@@ -17,18 +17,17 @@ call plug#begin('~/.vim/bundle')
 " Define bundles via Github repos
 Plug 'christoomey/vim-run-interactive'
 
-" If fzf has already been installed via Homebrew, use the existing fzf
-" Otherwise, install fzf. The `--all` flag makes fzf accessible outside of vim
-if isdirectory("/usr/local/opt/fzf")
-  Plug '/usr/local/opt/fzf'
-else
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-endif
-
-Plug 'junegunn/fzf.vim'
+" " If fzf has already been installed via Homebrew, use the existing fzf
+" " Otherwise, install fzf. The `--all` flag makes fzf accessible outside of vim
+" if isdirectory("/usr/local/opt/fzf")
+"   Plug '/usr/local/opt/fzf'
+" else
+"   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" endif
+"
+" Plug 'junegunn/fzf.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'pbrisbin/vim-mkdir'
-Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-repeat'
@@ -41,39 +40,83 @@ Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
+Plug 'iamcco/coc-spell-checker', {'do': 'yarn install --frozen-lockfile'}
+Plug 'iamcco/coc-actions', {'do': 'yarn install --frozen-lockfile'}
 Plug 'mattn/emmet-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'terryma/vim-multiple-cursors'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'preservim/nerdtree'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'leafgarland/typescript-vim'
-Plug 'vim-scripts/ZoomWin'
 Plug 'sheerun/vim-polyglot'
-Plug 'HendrikPetertje/vimify'
 Plug 'jiangmiao/auto-pairs'
 Plug 'rhysd/open-pdf.vim'
 Plug 'moll/vim-bbye'
 Plug 'airblade/vim-gitgutter'
 Plug 'k0kubun/vim-open-github'
 Plug 'dhruvasagar/vim-table-mode'
-Plug 'vimwiki/vimwiki'
+Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 Plug 'vim-scripts/groovy.vim'
 Plug 'pseewald/vim-anyfold'
-Plug 'google/vim-maktaba'
-Plug 'google/vim-codereview'
 Plug 'AGhost-7/critiq.vim'
-Plug 'paulkass/jira-vim'
 Plug 'haishanh/night-owl.vim'
-Plug 'heavenshell/vim-jsdoc'
+Plug 'heavenshell/vim-jsdoc', { 
+  \ 'for': ['javascript', 'javascript.jsx','typescript'], 
+  \ 'do': 'make install'
+\}
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'justinmk/vim-sneak'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-dispatch'
+Plug 'mbbill/undotree'
+Plug 'n0v1c3/vira', { 'do': './install.sh' }
+Plug 'kassio/neoterm'
+Plug 'vim-test/vim-test'
+Plug 'junegunn/vim-easy-align'
+" Plug 'easymotion/vim-easymotion'
+" Plug 'puremourning/vimspector'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-github.nvim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-tree-docs'
+Plug 'HendrikPetertje/vimify'
+Plug 'lambdalisue/suda.vim'
+Plug 'WolfgangMehner/vim-plugins'
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
+Plug 'hrsh7th/nvim-compe'
+Plug 'tyru/open-browser.vim'
+Plug 'ThePrimeagen/vim-be-good'
+Plug 'morhetz/gruvbox'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'mhartington/formatter.nvim'
+Plug 'tpope/vim-obsession'
+Plug 'pwntester/octo.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'phaazon/hop.nvim'
+Plug 'unblevable/quick-scope'
+Plug 'nvim-treesitter/playground'
+Plug 'dpelle/vim-LanguageTool'
+Plug 'pyrho/nerveux.nvim'
+Plug 'kyazdani42/nvim-web-devicons' " for file icons
+Plug 'kyazdani42/nvim-tree.lua'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'norcalli/nvim-terminal.lua'
+Plug 'nvim-telescope/telescope-rg.nvim'
+Plug 'romgrk/todoist.nvim', { 'do': ':TodoistInstall' }
+
+if has('nvim')
+	Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+endif
 
 if g:has_async
   Plug 'dense-analysis/ale'

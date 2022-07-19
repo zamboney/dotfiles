@@ -1,7 +1,8 @@
 [init]
-  templatedir = ~/.git_template
+	templateDir = /Users/ran.itzhaki/.git-templates/git-secrets
 [push]
-  default = current
+	default = current
+	followTags = true
 [color]
   ui = auto
 [alias]
@@ -11,6 +12,9 @@
   ci = commit -v
   co = checkout
   pf = push --force-with-lease
+  set-upstream = \
+      !git branch \
+    --set-upstream-to=origin/`git symbolic-ref --short HEAD`
   st = status
 [core]
   excludesfile = ~/.gitignore
@@ -29,7 +33,6 @@
 [diff]
   colorMoved = zebra
 [user]
-	email = zamboney@gmail.com
 	name = zamboney
 [credential]
 	helper = osxkeychain
