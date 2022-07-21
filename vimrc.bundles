@@ -107,8 +107,6 @@ Plug 'unblevable/quick-scope'
 Plug 'nvim-treesitter/playground'
 Plug 'dpelle/vim-LanguageTool'
 Plug 'pyrho/nerveux.nvim'
-Plug 'kyazdani42/nvim-web-devicons' " for file icons
-Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'norcalli/nvim-terminal.lua'
 Plug 'nvim-telescope/telescope-rg.nvim'
