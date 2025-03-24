@@ -16,6 +16,7 @@
       !git branch \
     --set-upstream-to=origin/`git symbolic-ref --short HEAD`
   st = status
+	root = rev-parse --show-toplevel
 [core]
   excludesfile = ~/.gitignore
   editor = 'nvim'
@@ -31,7 +32,10 @@
 [include]
   path = ~/.gitconfig.local
 [diff]
-  colorMoved = zebra
+  tool = nvim
+  colorMoved = blocks
+[difftool "nvim"]
+  cmd = /opt/homebrew/bin/nvim -d \"$LOCAL\" \"$REMOTE\"
 [user]
 	name = zamboney
 [credential]

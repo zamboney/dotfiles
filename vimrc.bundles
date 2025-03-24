@@ -33,29 +33,18 @@ Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
-Plug 'vim-scripts/tComment'
 Plug 'leafoftree/vim-vue-plugin'
 Plug 'godlygeek/tabular'
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
-Plug 'iamcco/coc-spell-checker', {'do': 'yarn install --frozen-lockfile'}
-Plug 'iamcco/coc-actions', {'do': 'yarn install --frozen-lockfile'}
 Plug 'mattn/emmet-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'cakebaker/scss-syntax.vim'
-Plug 'preservim/nerdtree'
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'leafgarland/typescript-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'jiangmiao/auto-pairs'
 Plug 'rhysd/open-pdf.vim'
 Plug 'moll/vim-bbye'
-Plug 'airblade/vim-gitgutter'
 Plug 'k0kubun/vim-open-github'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
@@ -74,42 +63,35 @@ Plug 'junegunn/limelight.vim'
 Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-dispatch'
 Plug 'mbbill/undotree'
-Plug 'n0v1c3/vira', { 'do': './install.sh' }
-Plug 'kassio/neoterm'
+" Plug 'kassio/neoterm'
 Plug 'vim-test/vim-test'
 Plug 'junegunn/vim-easy-align'
 " Plug 'easymotion/vim-easymotion'
 " Plug 'puremourning/vimspector'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-github.nvim'
-Plug 'neovim/nvim-lspconfig'
+" Plug 'nvim-lua/popup.nvim'
+" Plug 'nvim-lua/plenary.nvim'
+" Plug 'nvim-telescope/telescope.nvim'
+" Plug 'nvim-telescope/telescope-github.nvim'
+" Plug 'neovim/nvim-lspconfig'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-treesitter/nvim-tree-docs'
-Plug 'HendrikPetertje/vimify'
+" Plug 'HendrikPetertje/vimify'
 Plug 'lambdalisue/suda.vim'
-Plug 'WolfgangMehner/vim-plugins'
+" Plug 'WolfgangMehner/vim-plugins'
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
 Plug 'hrsh7th/nvim-compe'
 Plug 'tyru/open-browser.vim'
 Plug 'ThePrimeagen/vim-be-good'
-Plug 'morhetz/gruvbox'
+" Plug 'morhetz/gruvbox'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mhartington/formatter.nvim'
 Plug 'tpope/vim-obsession'
-Plug 'pwntester/octo.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'phaazon/hop.nvim'
+" Plug 'phaazon/hop.nvim'
 Plug 'unblevable/quick-scope'
-Plug 'nvim-treesitter/playground'
 Plug 'dpelle/vim-LanguageTool'
-Plug 'pyrho/nerveux.nvim'
-Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+" Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'norcalli/nvim-terminal.lua'
-Plug 'nvim-telescope/telescope-rg.nvim'
+" Plug 'nvim-telescope/telescope-rg.nvim'
 Plug 'romgrk/todoist.nvim', { 'do': ':TodoistInstall' }
 
 if has('nvim')

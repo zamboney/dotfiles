@@ -32,7 +32,7 @@ set undofile
 set undodir=~/.vim/undodir/
 set undolevels=2000
 set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
+" set foldexpr=nvim_treesitter#foldexpr()
 set foldcolumn=1 "defines 1 col at window left, to indicate folding
 let javaScript_fold=1 "activate folding by JS syntax
 set foldlevelstart=99 "start file with all folds opened
@@ -145,10 +145,10 @@ inoremap <S-Tab> <C-n>
 nnoremap <Leader><Leader> <C-^>
 
 " Remove newbie crutches in Command Mode
-cnoremap <Down> <Nop>
-cnoremap <Left> <Nop>
-cnoremap <Right> <Nop>
-cnoremap <Up> <Nop>
+" cnoremap <Down> <Nop>
+" cnoremap <Left> <Nop>
+" cnoremap <Right> <Nop>
+" cnoremap <Up> <Nop>
 
 " Remove newbie crutches in Insert Mode
 inoremap <Down> <Nop>
@@ -168,29 +168,29 @@ vnoremap <Left> <Nop>
 vnoremap <Right> <Nop>
 vnoremap <Up> <Nop>
 
-" command shortcut
-cnoremap <C-a> <Home>
-cnoremap <C-e> <End>
-cnoremap <c-k> <Up>
-cnoremap <C-j> <Down>
-cnoremap <C-h> <Left>
-cnoremap <C-l> <Right>
-cnoremap <C-b> <S-Left>
-cnoremap <C-w> <S-Right>
-
+" " command shortcut
+" cnoremap <C-a> <Home>
+" cnoremap <C-e> <End>
+" cnoremap <c-k> <Up>
+" cnoremap <C-j> <Down>
+" cnoremap <C-h> <Left>
+" cnoremap <C-l> <Right>
+" cnoremap <C-b> <S-Left>
+" cnoremap <C-w> <S-Right>
+"
 " insert shortcut
-inoremap <C-a> <Home>
-inoremap <C-e> <End>
-inoremap <c-k> <Up>
-inoremap <C-j> <Down>
-inoremap <C-h> <Left>
-inoremap <C-l> <Right>
-inoremap <C-H> <Left>
-inoremap <C-J> <Down>
-inoremap <C-K> <Up>
-inoremap <C-L> <Right>
-inoremap <C-b> <S-Left>
-inoremap <C-w> <S-Right>
+" inoremap <C-a> <Home>
+" inoremap <C-e> <End>
+" inoremap <c-k> <Up>
+" "inoremap <C-j> <Down>
+" inoremap <C-h> <Left>
+" inoremap <C-l> <Right>
+" inoremap <C-H> <Left>
+" "inoremap <C-J> <Down>
+" inoremap <C-K> <Up>
+" inoremap <C-L> <Right>
+" inoremap <C-b> <S-Left>
+" inoremap <C-w> <S-Right>
 
 let g:AutoPairsMapCh = 0
 let g:AutoPairsMapBS = 0
@@ -204,12 +204,6 @@ set tags^=.git/tags
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
-
-" Quicker window movement
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
 
 " Move between linting errors
 nnoremap ]r :ALENextWrap<CR>
@@ -246,21 +240,21 @@ function! FormatLua(buffer) abort
     \}
 endfunction
 
-execute ale#fix#registry#Add('lua-format', 'FormatLua', ['lua'], 'luafmt for lua')
-
-let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
-let g:ale_linters = {'vue': ['eslint', 'vls']}
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['eslint','prettier'],
-\   'vue': ['eslint'],
-\   'lua': ['lua-format'],
-\ }
-" Set this variable to 1 to fix files when you save them.
-let g:ale_fix_on_save = 0
-" https://github.com/dense-analysis/ale/issues/1176#issuecomment-348149374
-let g:ale_cache_executable_check_failures = 1
-
+" execute ale#fix#registry#Add('lua-format', 'FormatLua', ['lua'], 'luafmt for lua')
+"
+" let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
+" let g:ale_linters = {'vue': ['eslint', 'vls']}
+" let g:ale_fixers = {
+" \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+" \   'javascript': ['eslint','prettier'],
+" \   'vue': ['eslint'],
+" \   'lua': ['lua-format'],
+" \ }
+" " Set this variable to 1 to fix files when you save them.
+" let g:ale_fix_on_save = 0
+" " https://github.com/dense-analysis/ale/issues/1176#issuecomment-348149374
+" let g:ale_cache_executable_check_failures = 1
+"
 " https://github.com/neoclide/coc.nvim/issues/1827
 " slow Coc intellisense
 let g:airline#extensions#hunks#enabled = 0
@@ -416,10 +410,10 @@ endif
 " " nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 "
 " " open the current markdown in reveal js
-" nnoremap <Leader>rr :new term://reveal-md % --css style.css --theme solarized --separator \"\^\\n\\n\\n\" --vertical-separator \"\^\\n\\n\" --watch<CR>
+nnoremap <Leader>rr :new term://npx reveal-md % --css style.css --theme solarized --separator \"\^\\n\\n\\n\" --vertical-separator \"\^\\n\\n\" --watch<CR>
 "
 " " open the current markdown in reveal js
-" nnoremap <Leader>rp :new term://reveal-md % --css style.css --theme solarized --separator \"\^\\n\\n\\n\" --vertical-separator \"\^\\n\\n\" --print %:r.pdf --print-size 1024x768<CR>
+nnoremap <Leader>rp :new term://npx reveal-md % --css style.css --theme solarized --separator \"\^\\n\\n\\n\" --vertical-separator \"\^\\n\\n\" --print %:r.pdf --print-size 1024x768<CR>
 "
 " let NERDTreeShowHidden=1
 "
@@ -499,18 +493,10 @@ if getline(1) =~ '^#!.*[/\\]groovy\>'
   setf groovy
 endif
 
-"JIRA
-let g:jiraVimDomainName = "naturalintelligence"
-let g:jiraVimEmail      = "ran.itzhaki@naturalint.com"
-let g:jiraVimToken      = "6u3Cc2qA5oagvhbdxs1FC7C8"
-
-colorscheme gruvbox
+" colorscheme gruvbox
 
 " YankRing
 let g:yankring_replace_n_pkey = '<Leader>p'
-
-" set the path of coc to node12
-let g:coc_node_path = '~/.nvm/versions/node/v14.17.3/bin/node'
 
 " disable syntax for large files
 augroup largefiel
@@ -548,7 +534,7 @@ xmap <Leader>l <Plug>(Limelight)
 "
 
 " Vira status airline
-let g:airline_section_z = '%{ViraStatusLine()}'
+" let g:airline_section_z = '%{ViraStatusLine()}'
 
 " search and replace highlighting:w
 set icm=nosplit
@@ -595,10 +581,10 @@ if has('nvim')
     set wildoptions=pum
 
   " Navigate neovim + neovim terminal emulator with alt+direction
-    tnoremap <silent><C-h> <C-\><C-n><C-w>h
-    tnoremap <silent><C-j> <C-\><C-n><C-w>j
-    tnoremap <silent><C-k> <C-\><C-n><C-w>k
-    tnoremap <silent><C-l> <C-\><C-n><C-w>l
+    " tnoremap <silent><C-h> <C-\><C-n><C-w>h
+    " tnoremap <silent><C-j> <C-\><C-n><C-w>j
+    " tnoremap <silent><C-k> <C-\><C-n><C-w>k
+    " tnoremap <silent><C-l> <C-\><C-n><C-w>l
 
   " easily escape terminal
   " tnoremap <leader><esc> <C-\><C-n><esc><cr>
@@ -609,9 +595,6 @@ if has('nvim')
     function! Toggle_terminal_by_tab()
       execute "botright " . tabpagenr() . " Ttoggle"
     endfunction
-
-    nnoremap <silent> <leader>O :call Toggle_terminal_by_tab()<cr><c-w>j
-    nnoremap <silent> <leader>o :call Toggle_terminal_by_tab()<cr><c-w>j
 
     " close terminal
     " tnoremap <silent> <leader>o <C-\><C-n>:Ttoggle<cr>
@@ -645,21 +628,7 @@ nmap <silent> t<C-g> :TestVisit<CR>
 " " JK motions: Line motions
 " nmap f <Plug>(easymotion-overwin-w)
 
-nmap s :HopWord<cr>
-
-let t:is_transparent = 0
-function! Toggle_transparent()
-    if t:is_transparent == 0
-        hi Normal guibg=NONE ctermbg=NONE
-        let t:is_transparent = 1
-    else
-        set background=dark
-        let t:is_tranparent = 0
-    endif
-endfunction
-nnoremap <C-t> : call Toggle_transparent()<CR>
-
-let g:jsdoc_lehre_path = "/Users/ran.itzhaki/.nvm/versions/node/v10.22.0/bin/lehre"
+" nmap s :HopWord<cr>
 
 command! -bang -nargs=* GGrep
   \ call fzf#vim#grep(
@@ -683,7 +652,7 @@ let g:vimwiki_key_mappings =
   \   'headers': 1,
   \   'text_objs': 1,
   \   'table_format': 1,
-  \   'table_mappings': 1,
+  \   'table_mappings': 0,
   \   'lists': 1,
   \   'links': 1,
   \   'html': 1,

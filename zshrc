@@ -51,9 +51,9 @@ _load_settings "$HOME/.zsh/configs"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # https://gist.github.com/kevin-smets/8568070
-source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
+# source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
-source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
+# source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
+# source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
